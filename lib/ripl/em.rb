@@ -2,7 +2,6 @@ require 'ripl'
 require 'eventmachine'
 
 # Runs eventmachine code in a ripl shell - asynchronously of course
-# TODO: Readline history, autocompletion and Ctrl-D exit
 module Ripl::Em
   def get_input() @input end
 
@@ -15,6 +14,7 @@ module Ripl::Em
   def before_loop
     super
     $stdout.sync = true
+    Ripl::Shell::EXIT_WORDS << "\x00" # Ctrl-D + Enter exit
     trap("SIGINT") { handle_interrupt }
   end
 
@@ -23,16 +23,6 @@ module Ripl::Em
 
     def post_init
       print Ripl.shell.prompt
-    end
-
-    # TODO: #receive_data and autocompletion
-    def xreceive_data(data)
-      if data[/\t$/]
-        warn "TAB #{data}"
-        Bond.agent.call(data.chop, data.chop)
-      else
-        super
-      end
     end
 
     def receive_line(line)
