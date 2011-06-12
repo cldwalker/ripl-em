@@ -1,0 +1,29 @@
+== Description
+Run EventMachine code in a ripl shell - asynchronously of course
+
+== Install
+Install the gem with:
+
+    gem install ripl-em
+
+== Usage
+
+    $ ripl em
+    >> require 'em-http-request'
+    => true
+
+    >> def get(url); req = EM::HttpRequest.new(url).get; req.callback {|h| puts h.response }; end
+    => nil
+
+    # Make two requests and watch them return in reverse order
+    >> get 'http://robolot.herokuapp.com/sleep/10'
+    => [#\<Proc:0x00000101a76848@(ripl):4>]
+    >> get 'http://robolot.herokuapp.com/sleep/1'
+    => [#\<Proc:0x00000101a76848@(ripl):4>]
+    Sir, I slept for 1 second(s). Anything else I can zzz...
+    Sir, I slept for 10 second(s). Anything else I can zzz...
+
+== Todo
+* Autocompletion - Requires an Em::Connection that responds to both newlines and tabs. Any takers? :)
+* Basic Readline behavior - Previous/Next history
+* Fix ~/.irb_history

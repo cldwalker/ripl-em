@@ -1,8 +1,9 @@
 require 'ripl'
 require 'eventmachine'
 
-# Runs eventmachine code in a ripl shell - asynchronously of course
 module Ripl::Em
+  VERSION = '0.1.0'
+
   def get_input() @input end
 
   def in_loop
