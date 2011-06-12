@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = "gabriel.horner@gmail.com"
   s.homepage    = "http://github.com/cldwalker/ripl-em"
   s.summary = "A ripl plugin to run eventmachine code interactively"
-  s.description =  ""
+  s.description =  "Run EventMachine code in a ripl shell - asynchronously of course"
   s.required_rubygems_version = ">= 1.3.6"
   s.add_dependency 'ripl', '>= 0.4.2'
   s.add_dependency 'eventmachine'
