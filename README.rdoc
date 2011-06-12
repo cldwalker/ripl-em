@@ -27,3 +27,4 @@ Install the gem with:
 * Autocompletion - Requires an Em::Connection that responds to both newlines and tabs. Any takers? :)
 * Basic Readline behavior - Previous/Next history
 * Fix ~/.irb_history
+* Retry EM loop if callback raises error

@@ -10,6 +10,8 @@ module Ripl::Em
     catch(:ripl_exit) {
       EM.run { EM.open_keyboard(KeyboardHandler) }
     }
+  rescue
+    print_eval_error($!)
   end
 
   def before_loop
