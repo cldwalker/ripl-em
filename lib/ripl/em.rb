@@ -4,7 +4,10 @@ require 'eventmachine'
 module Ripl::Em
   VERSION = '0.1.0'
 
-  def get_input() @input end
+  def get_input
+    history << @input
+    @input
+  end
 
   def in_loop
     catch(:ripl_exit) {

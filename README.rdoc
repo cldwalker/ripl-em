@@ -25,6 +25,5 @@ Install the gem with:
 
 == Todo
 * Autocompletion - Requires an Em::Connection that responds to both newlines and tabs. Any takers? :)
-* Basic Readline behavior - Previous/Next history
-* Fix ~/.irb_history
+* Basic Readline behavior - Up/Down Arrow -> Previous/Next history
 * Retry EM loop if callback raises error
